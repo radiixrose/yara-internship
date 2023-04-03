@@ -1,6 +1,16 @@
 import React from 'react';
 
 function Form({ formValues, handleInputChange, handleSaveClick, setShowForm }) {
+  const handleSave = () => {
+    const { column1, column2, column3 } = formValues;
+    const newData = {
+      input1: column1,
+      input2: column2,
+      input3: column3,
+    };
+    handleSaveClick(newData);
+  };
+
   return (
     <div className="ani-form">
       <h2>Form</h2>
@@ -35,7 +45,7 @@ function Form({ formValues, handleInputChange, handleSaveClick, setShowForm }) {
           <button onClick={() => setShowForm(false)}>Cancel</button>
         </div>
         <div className="button">
-          <button onClick={handleSaveClick}>Save</button>
+          <button onClick={handleSave}>Save</button>
         </div>
       </div>
     </div>
